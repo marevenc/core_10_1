@@ -3,22 +3,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Post {
     String _id, text, type;
     User user;
-    String upvotes, userUpvotes;
+    int upvotes;
+    String userUpvoted;
 
     public Post(
             @JsonProperty("_id") String _id,
             @JsonProperty("text") String text,
             @JsonProperty("type") String type,
             @JsonProperty("user") User user,
-            @JsonProperty("upvotes") String upvotes,
-            @JsonProperty("userUpvotes") String userUpvotes
+            @JsonProperty("upvotes") int upvotes,
+            @JsonProperty("userUpvoted") String userUpvoted
     ){
         this._id = _id;
         this.text = text;
         this.type = type;
         this.user = user;
         this.upvotes = upvotes;
-        this.userUpvotes = userUpvotes;
+        this.userUpvoted = userUpvoted;
     }
 
     public String getId() {
@@ -53,20 +54,20 @@ public class Post {
         this.user = user;
     }
 
-    public String getUpvotes() {
+    public int getUpvotes() {
         return upvotes;
     }
 
-    public void setUpvotes(String upvotes) {
+    public void setUpvotes(int upvotes) {
         this.upvotes = upvotes;
     }
 
-    public String getUserUpvotes() {
-        return userUpvotes;
+    public String getUserUpvoted() {
+        return userUpvoted;
     }
 
-    public void setUserUpvotes(String userUpvotes) {
-        this.userUpvotes = userUpvotes;
+    public void setUserUpvoted(String userUpvoted) {
+        this.userUpvoted = userUpvoted;
     }
 
     @Override
@@ -77,6 +78,6 @@ public class Post {
                 "\n type='" + type +
                 "\n user=" + user +
                 "\n upVotes=" + upvotes +
-                "\n userUpVotes=" + userUpvotes;
+                "\n userUpVotes=" + userUpvoted;
     }
 }
